@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Explore the engineering work, ventures, technical expertise and systems architecture of Ntsako Maluleke, founder of Talon IT Solutions.">
+    <meta name="theme-color" content="#FAFBFD">
+    <meta name="color-scheme" content="light">
+    <title>Ntsako Maluleke | Architectural Software Engineer & Founder - Talon IT Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        arch: {
+                            white: '#FFFFFF',
+                            porcelain: '#FAFBFD',
+                            cloud: '#F3F6FA',
+                            grey: '#E8EDF3',
+                            silver: '#DCE3EB',
+                            graphite: '#202938',
+                            slate: '#354154',
+                            gold: '#C49A36',
+                            champagne: '#E8CE8A',
+                            blue: '#368BEB',
+                            ice: '#DCEEFF',
+                            mint: '#DDF5EA',
+                            navy: '#0B132B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* White Architectural Design System Rules */
+        :root {
+            --bg-porcelain: #FAFBFD;
+            --border-silver: #DCE3EB;
+            --text-graphite: #202938;
+            --gold-primary: #C49A36;
+            --blue-electric: #368BEB;
+        }
+
+        body {
+            background-color: #FAFBFD;
+            color: #202938;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Architectural Grid Pattern Background */
+        .arch-grid-bg {
+            background-color: #FAFBFD;
+            background-image: 
+                linear-gradient(rgba(220, 227, 235, 0.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 227, 235, 0.4) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* White Architectural Glassmorphism */
+        .glass-panel-white {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid #DCE3EB;
+            box-shadow: 0 10px 30px rgba(32, 41, 56, 0.04);
+        }
+
+        .glass-panel-gold {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(196, 154, 54, 0.3);
+            box-shadow: 0 12px 35px rgba(196, 154, 54, 0.08);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-hover:hover {
+            border-color: rgba(196, 154, 54, 0.6);
+            box-shadow: 0 20px 40px rgba(196, 154, 54, 0.12), 0 4px 12px rgba(32, 41, 56, 0.03);
+            transform: translateY(-3px);
+        }
+
+        /* Typography Text Gradient Effects */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #202938 0%, #C49A36 60%, #997520 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #202938 0%, #368BEB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* White Studio Primary Button Styling */
+        .btn-gold-studio {
+            position: relative;
+            background: linear-gradient(135deg, #202938 0%, #354154 100%);
+            color: #FFFFFF;
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 25px rgba(32, 41, 56, 0.2);
+        }
+
+        .btn-gold-studio::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #C49A36, #368BEB);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            filter: blur(6px);
+        }
+
+        .btn-gold-studio:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #C49A36 0%, #A37E28 100%);
+        }
+
+        .btn-gold-studio:hover::before {
+            opacity: 0.8;
+        }
+
+        /* Architectural Grid & Canvas Overlay */
+        #arch-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar for Studio Aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAFBFD;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+            border: 2px solid #FAFBFD;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C49A36;
+        }
+
+        /* Unveil Dynamic Transition States */
+        .unveil-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            pointer-events: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.8s ease, transform 0.8s ease, max-height 1s ease;
+        }
+
+        .unveil-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            max-height: 25000px;
+        }
+
+        /* Toast Feedback */
+        #toast {
+            visibility: hidden;
+            min-width: 280px;
+            background-color: #FFFFFF;
+            color: #202938;
+            border: 1px solid #C49A36;
+            border-radius: 12px;
+            padding: 14px 24px;
+            position: fixed;
+            z-index: 100;
+            bottom: 30px;
+            right: 30px;
+            box-shadow: 0 20px 40px rgba(32, 41, 56, 0.12);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 40px;
+        }
+
+        /* SVG Connection Line Animations */
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -40;
+            }
+        }
+        .animate-data-flow {
+            stroke-dasharray: 8, 8;
+            animation: dash 2s linear infinite;
+        }
+
+        /* ---------------------------------------------------------------
+           ACCESSIBILITY, READABILITY & RESPONSIVE EXPERIENCE ENHANCEMENTS
+           These overrides preserve the existing visual identity and content.
+        ---------------------------------------------------------------- */
+        html { scroll-padding-top: 6.5rem; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        body { min-width: 320px; line-height: 1.65; overflow-x: clip; }
+        img, svg, video, canvas { max-width: 100%; }
+        svg { height: auto; }
+        button, a, input { -webkit-tap-highlight-color: transparent; }
+        button, input, a { touch-action: manipulation; }
+        a { text-underline-offset: 3px; }
+        p { max-width: 75ch; }
+        h1, h2, h3, h4 { text-wrap: balance; }
+        .skip-link {
+            position: fixed; top: 8px; left: 8px; z-index: 1000;
+            transform: translateY(-160%); padding: 12px 16px; border-radius: 10px;
+            background: #202938; color: #fff; font-weight: 700;
+        }
+        .skip-link:focus { transform: translateY(0); }
+        :focus-visible { outline: 3px solid #368BEB !important; outline-offset: 3px; }
+        button, a { min-height: 40px; }
+        .mobile-link { padding: 9px 0; }
+        #mobile-drawer { max-height: calc(100dvh - 5rem); overflow-y: auto; overscroll-behavior: contain; }
+        #arch-canvas { width: 100%; height: 100%; }
+        .unveil-hidden { visibility: hidden; }
+        .unveil-visible { visibility: visible; }
+        .lab-tab-btn { min-height: 44px; line-height: 1.4; }
+        #terminal-output { overflow-wrap: anywhere; scrollbar-width: thin; }
+        #terminal-input { min-width: 0; min-height: 44px; }
+        #toast { max-width: calc(100vw - 32px); overflow-wrap: anywhere; }
+        section[id] { scroll-margin-top: 6.5rem; }
+
+        @media (max-width: 767px) {
+            body { font-size: 15px; }
+            header > div:first-child { min-height: 68px; height: auto; }
+            header .text-base { font-size: .88rem; }
+            header .text-\[10px\] { letter-spacing: .08em; }
+            main.pt-20 { padding-top: 68px; }
+            main > section:first-child { min-height: auto; min-height: 82svh; padding-top: 4rem; padding-bottom: 4rem; }
+            main > section:first-child h1 { font-size: clamp(2.15rem, 9vw, 3.6rem); line-height: 1.12; letter-spacing: -.045em; }
+            main > section:first-child p { font-size: 1rem; line-height: 1.75; }
+            #unveiled-content { padding-left: 1rem; padding-right: 1rem; padding-top: 2rem; gap: 4.5rem; }
+            #unveiled-content > section { scroll-margin-top: 5.5rem; }
+            #unveiled-content h3 { line-height: 1.2; }
+            #unveiled-content .text-xs { font-size: .78rem; line-height: 1.6; }
+            #unveiled-content .text-\[11px\] { font-size: .72rem; }
+            #unveiled-content .text-\[10px\] { font-size: .68rem; }
+            #unveiled-content .p-8 { padding: 1.25rem; }
+            #unveiled-content .p-6 { padding: 1rem; }
+            #unveiled-content .grid { min-width: 0; }
+            #unveiled-content .lab-tab-btn { flex: 1 1 100%; justify-content: center; text-align: center; }
+            #lab .glass-panel-white > .grid { gap: 1.25rem; }
+            #lab svg { min-height: 0 !important; width: 100%; overflow: visible; }
+            #lab .lg\:col-span-8 { min-width: 0; padding: .65rem; }
+            #terminal .bg-arch-navy { padding: 1rem; border-radius: 1.25rem; }
+            #terminal .bg-arch-navy > div:first-child { gap: .5rem; }
+            #terminal .bg-arch-navy > div:first-child span:nth-child(2) { font-size: .62rem; }
+            #contact .glass-panel-gold { padding: 1.25rem; }
+            #contact button { width: 100%; }
+            footer .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+            #toast { left: 16px; right: 16px; bottom: 16px; min-width: 0; padding: 12px 16px; }
+            #toast.show { bottom: max(20px, env(safe-area-inset-bottom)); }
+        }
+        @media (max-width: 380px) {
+            header .w-10 { width: 2.25rem; height: 2.25rem; }
+            header .text-base { font-size: .76rem; }
+            header .tracking-widest { letter-spacing: .06em; }
+            main > section:first-child .grid { gap: .55rem; }
+            main > section:first-child .grid > div { padding: .75rem; }
+            main > section:first-child .grid > div > div:first-child { font-size: 1.35rem; }
+            #terminal .bg-arch-navy > div:first-child span:nth-child(2) { display: none; }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            nav { gap: .8rem !important; }
+            nav a { font-size: .65rem; }
+            #unveiled-content { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+        @media (hover: none) {
+            .glass-panel-hover:hover { transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important; animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+            }
+            #arch-canvas { display: none; }
+        }
+    </style>
+</head>
+<body class="arch-grid-bg text-arch-graphite selection:bg-arch-gold selection:text-white">
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Interactive Canvas Particle & Grid Overlay -->
+    <canvas id="arch-canvas" aria-hidden="true"></canvas>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="flex items-center space-x-3" role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check text-arch-gold text-lg"></i>
+        <span id="toast-msg" class="text-xs font-semibold tracking-wide">Copied to clipboard!</span>
+    </div>
+
+    <!-- ARCHITECTURAL HEADER NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel-white border-b border-arch-silver backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Studio Identity -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-arch-graphite flex items-center justify-center text-arch-gold font-mono font-bold text-lg shadow-md group-hover:bg-arch-gold group-hover:text-white transition-colors">
+                    N
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight text-arch-graphite block leading-none group-hover:text-arch-gold transition-colors">NTSAKO MALULEKE</span>
+                    <span class="text-[10px] font-mono tracking-widest text-arch-gold uppercase">Talon IT Solutions Studio</span>
+                </div>
+            </a>
+
+            <!-- Studio Navigation Menu -->
+            <nav aria-label="Main navigation" class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-arch-slate">
+                <a href="#about" class="hover:text-arch-gold transition-colors">Philosophy</a>
+                <a href="#divisions" class="hover:text-arch-gold transition-colors">Divisions</a>
+                <a href="#lab" class="hover:text-arch-blue transition-colors">Architecture Lab</a>
+                <a href="#stack" class="hover:text-arch-gold transition-colors">Expertise</a>
+                <a href="#timeline" class="hover:text-arch-gold transition-colors">Timeline</a>
+                <a href="#terminal" class="hover:text-arch-blue transition-colors">Terminal</a>
+                <a href="#contact" class="hover:text-arch-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Action Badges & Counter -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="https://www.linkedin.com/in/ntsakomaluleke" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl text-arch-slate hover:text-arch-gold hover:bg-arch-cloud transition-colors" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin text-lg"></i>
+                </a>
+                <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl text-arch-slate hover:text-arch-gold hover:bg-arch-cloud transition-colors" title="Vercel Deployments">
+                    <i class="fa-solid fa-triangle-circle-box text-lg"></i>
+                </a>
+                <button type="button" onclick="registerInteraction()" class="px-3.5 py-2 rounded-xl text-xs font-mono bg-arch-cloud border border-arch-silver text-arch-graphite hover:border-arch-gold transition-all flex items-center space-x-2 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-arch-blue animate-pulse"></span>
+                    <span>Metrics: <span id="nav-counter" class="font-bold text-arch-gold">0</span></span>
+                </button>
+            </div>
+
+            <!-- Mobile Drawer Toggle -->
+            <button id="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-drawer" aria-expanded="false" class="md:hidden text-arch-graphite p-2 focus:outline-none">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <nav id="mobile-drawer" aria-label="Mobile navigation" hidden class="hidden md:hidden bg-arch-white border-b border-arch-silver px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-gold">Philosophy</a>
+            <a href="#divisions" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-gold">Divisions</a>
+            <a href="#lab" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-blue">Architecture Lab</a>
+            <a href="#stack" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-gold">Expertise</a>
+            <a href="#timeline" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-gold">Timeline</a>
+            <a href="#terminal" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-blue">Terminal</a>
+            <a href="#contact" class="mobile-link block text-sm font-semibold text-arch-slate hover:text-arch-gold">Contact</a>
+            <div class="flex space-x-4 pt-4 border-t border-arch-silver">
+                <a href="https://www.linkedin.com/in/ntsakomaluleke" target="_blank" rel="noopener noreferrer" class="text-arch-slate hover:text-arch-gold">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="text-arch-slate hover:text-arch-gold">
+                    <i class="fa-solid fa-triangle-circle-box text-xl"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- MAIN ARCHITECTURAL CANVAS -->
+    <main id="main-content" class="pt-20 min-h-screen">
+
+        <!-- 1. GATEWAY / HERO SECTION -->
+        <section class="relative min-h-[88vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+            <!-- Decorative Architectural Background Crosshairs -->
+            <div class="absolute top-12 left-12 text-[10px] font-mono text-arch-slate/40 hidden sm:block">
+                LAT: -25.7479° S | LON: 28.2293° E<br/>PRETORIA ARCHITECTURAL STUDIO
+            </div>
+            <div class="absolute bottom-12 right-12 text-[10px] font-mono text-arch-slate/40 hidden sm:block text-right">
+                BUILD STATUS: PRODUCTION VERIFIED<br/>SYSTEM STACK: ENTERPRISE LIGHT
+            </div>
+
+            <div class="max-w-5xl mx-auto text-center z-10">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-panel-gold mb-8">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span class="text-xs font-mono font-semibold tracking-wider text-arch-graphite uppercase">Engineering Studio</span>
+                </div>
+
+                <!-- Main Hero Heading -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-arch-graphite mb-6 leading-tight">
+                    Engineering Digital Architecture with <br class="hidden sm:inline"/>
+                    <span class="text-gradient-gold">Compounded Precision.</span>
+                </h1>
+
+                <!-- Elevator Pitch -->
+                <p class="max-w-3xl mx-auto text-base sm:text-xl text-arch-slate mb-10 leading-relaxed font-normal">
+                    I am <strong class="text-arch-graphite font-bold">Ntsako Maluleke</strong>, Software Engineer & Founder of 
+                    <span class="text-arch-gold font-bold">Talon IT Solutions</span>. Architecting high-frequency web infrastructure, quantitative MT5 execution engines, and digital education platforms.
+                </p>
+
+                <!-- Metrics Dashboard -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+                    <div class="glass-panel-white p-5 rounded-2xl border border-arch-silver text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold font-mono text-arch-gold" id="stat-commits">14,200+</div>
+                        <div class="text-[11px] font-semibold text-arch-slate uppercase tracking-wider mt-1">Lines Compounded</div>
+                    </div>
+                    <div class="glass-panel-white p-5 rounded-2xl border border-arch-silver text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold font-mono text-arch-blue">99.9%</div>
+                        <div class="text-[11px] font-semibold text-arch-slate uppercase tracking-wider mt-1">Uptime Availability</div>
+                    </div>
+                    <div class="glass-panel-white p-5 rounded-2xl border border-arch-silver text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold font-mono text-arch-gold">15+</div>
+                        <div class="text-[11px] font-semibold text-arch-slate uppercase tracking-wider mt-1">Vercel Deployments</div>
+                    </div>
+                    <div class="glass-panel-white p-5 rounded-2xl border border-arch-silver text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold font-mono text-arch-blue">100s</div>
+                        <div class="text-[11px] font-semibold text-arch-slate uppercase tracking-wider mt-1">Students Taught</div>
+                    </div>
+                </div>
+
+                <!-- Gateway CTA -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button type="button" id="unveil-btn" onclick="unveilStudio()" class="btn-gold-studio px-8 py-4 rounded-xl font-bold text-sm sm:text-base tracking-wider uppercase flex items-center space-x-3 group cursor-pointer w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-compass-drafting text-arch-gold group-hover:rotate-45 transition-transform"></i>
+                        <span>UNVEIL THE ENGINEERING</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+
+                    <a href="https://www.linkedin.com/in/ntsakomaluleke" target="_blank" rel="noopener noreferrer" class="glass-panel-white px-6 py-4 rounded-xl text-arch-graphite hover:border-arch-gold hover:text-arch-gold transition-all flex items-center space-x-2 font-semibold text-sm w-full sm:w-auto justify-center">
+                        <i class="fa-brands fa-linkedin text-lg text-arch-blue"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <!-- Sub-prompt -->
+                <p id="unveil-prompt" class="text-xs text-arch-slate mt-4 font-mono">
+                    <i class="fa-solid fa-circle-info text-arch-gold mr-1"></i> Click to unlock interactive system diagrams, engineering divisions & command terminal.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- UNVEILED STUDIO CONTENT -->
+        <div id="unveiled-content" class="unveil-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-12">
+
+            <!-- 2. PERSONAL PHILOSOPHY & INTRODUCTION -->
+            <section id="about" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-gold to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-gold uppercase font-bold">01 / Engineering DNA & Studio Vision</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-arch-graphite leading-tight">
+                            Building Architectural Software Systems with High Precision
+                        </h3>
+                        <p class="text-arch-slate leading-relaxed text-base">
+                            At <strong class="text-arch-graphite">Talon IT Solutions</strong>, software development is treated with architectural rigor. Rooted in structured computer science studies at <strong class="text-arch-graphite">Eduvos Pretoria Campus</strong>, my approach combines clean modular frontends with low-latency backend engines and robust cloud environments.
+                        </p>
+                        <p class="text-arch-slate leading-relaxed text-base">
+                            Driven by community impact through <strong class="text-arch-graphite">Talon IT Education</strong>, I author curriculum for youth in Mamelodi, breaking down complex software topics into practical engineering modules.
+                        </p>
+
+                        <!-- Highlights Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="p-4 rounded-xl bg-arch-white border border-arch-silver flex items-start space-x-3 shadow-sm">
+                                <i class="fa-solid fa-cubes text-arch-gold text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-arch-graphite font-bold text-sm">Enterprise Web Architecture</h4>
+                                    <p class="text-xs text-arch-slate mt-0.5">Scalable serverless platforms deployed on Vercel.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-arch-white border border-arch-silver flex items-start space-x-3 shadow-sm">
+                                <i class="fa-solid fa-chart-line text-arch-blue text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="text-arch-graphite font-bold text-sm">Quant Infrastructure</h4>
+                                    <p class="text-xs text-arch-slate mt-0.5">Automated MT5 Python algorithms & liquidity sweeps.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Editorial Quote Card -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-panel-gold p-8 rounded-3xl relative overflow-hidden">
+                            <i class="fa-solid fa-quote-left text-4xl text-arch-gold/20 mb-4 block"></i>
+                            <p class="text-base italic text-arch-graphite mb-6 leading-relaxed">
+                                "Engineering excellence is not an event—it is a compounded continuous habit. Clean abstractions today prevent architectural collapses tomorrow."
+                            </p>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-xl bg-arch-graphite text-arch-gold font-bold flex items-center justify-center text-lg shadow-md">
+                                    NM
+                                </div>
+                                <div>
+                                    <div class="text-arch-graphite font-bold text-sm">Ntsako Maluleke</div>
+                                    <div class="text-xs text-arch-gold font-semibold">Founder & Chief Architect</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 3. PROJECT ECOSYSTEM / TALON DIVISIONS -->
+            <section id="divisions" class="scroll-mt-28">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-2">
+                            <div class="w-12 h-1 bg-gradient-to-r from-arch-gold to-transparent"></div>
+                            <h2 class="text-xs font-mono tracking-widest text-arch-gold uppercase font-bold">02 / Engineering Divisions</h2>
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-arch-graphite">Compounded Venture Ecosystem</h3>
+                    </div>
+                    <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="mt-4 md:mt-0 inline-flex items-center space-x-2 text-arch-gold hover:text-arch-graphite font-mono text-xs font-semibold">
+                        <span>EXPLORE ALL DEPLOYMENTS ON VERCEL</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+
+                <!-- Division Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- DIVISION 1: TALON IT SOLUTIONS -->
+                    <div class="glass-panel-white glass-panel-hover rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-arch-gold">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="p-3 rounded-2xl bg-arch-gold/10 text-arch-gold text-xl">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-arch-mint text-emerald-800 border border-emerald-200">
+                                    Commercial Division
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold text-arch-graphite mb-2">Talon IT Solutions</h4>
+                            <div class="text-xs font-mono text-arch-gold font-semibold mb-4">COMMERCIAL DIGITAL ENGINEERING</div>
+                            <p class="text-xs text-arch-slate mb-6 leading-relaxed">
+                                Bespoke enterprise web software, modern high-converting digital storefronts, fast serverless architectures, and tailored client platforms.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="button" aria-controls="cs-1" aria-expanded="false" onclick="toggleCaseStudy('cs-1')" class="w-full py-2.5 px-4 rounded-xl bg-arch-cloud hover:bg-arch-grey text-xs font-mono font-semibold text-arch-graphite flex items-center justify-between transition-colors mb-3">
+                                <span>Division Details</span>
+                                <i id="icon-cs-1" class="fa-solid fa-chevron-down transition-transform"></i>
+                            </button>
+
+                            <div id="cs-1" class="hidden text-xs text-arch-slate space-y-2 mb-4 p-4 rounded-xl bg-arch-porcelain border border-arch-silver">
+                                <p><strong class="text-arch-graphite">Focus:</strong> Speed-optimized single-page apps, smooth micro-interactions, responsive design across all viewports.</p>
+                                <p><strong class="text-arch-graphite">Pipeline:</strong> Direct Git integration with Vercel serverless edge network.</p>
+                            </div>
+
+                            <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-arch-graphite text-white font-semibold text-xs transition-all flex items-center justify-center space-x-2 hover:bg-arch-gold">
+                                <span>Launch Live Suite</span>
+                                <i class="fa-solid fa-external-link text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- DIVISION 2: TALON IT EDUCATION -->
+                    <div class="glass-panel-white glass-panel-hover rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-arch-blue">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="p-3 rounded-2xl bg-arch-blue/10 text-arch-blue text-xl">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-arch-ice text-arch-blue border border-arch-blue/30">
+                                    Education Division
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold text-arch-graphite mb-2">Talon IT Education</h4>
+                            <div class="text-xs font-mono text-arch-blue font-semibold mb-4">TECHNOLOGY EDUCATION & SKILLS</div>
+                            <p class="text-xs text-arch-slate mb-6 leading-relaxed">
+                                Authoring practical web engineering curriculum for youth. Empowering secondary learners with hands-on HTML, CSS, and software design concepts.
+                            </p>
+
+                            <!-- Tech Stack Badges -->
+                        </div>
+
+                        <div>
+                            <button type="button" aria-controls="cs-2" aria-expanded="false" onclick="toggleCaseStudy('cs-2')" class="w-full py-2.5 px-4 rounded-xl bg-arch-cloud hover:bg-arch-grey text-xs font-mono font-semibold text-arch-graphite flex items-center justify-between transition-colors mb-3">
+                                <span>Curriculum Overview</span>
+                                <i id="icon-cs-2" class="fa-solid fa-chevron-down transition-transform"></i>
+                            </button>
+
+                            <div id="cs-2" class="hidden text-xs text-arch-slate space-y-2 mb-4 p-4 rounded-xl bg-arch-porcelain border border-arch-silver">
+                                <p><strong class="text-arch-graphite">Textbook:</strong> Author of <em>"HTML for Beginner Engineers"</em>.</p>
+                                <p><strong class="text-arch-graphite">Impact:</strong> Over 100 learners introduced to professional web engineering practices.</p>
+                            </div>
+
+                            <button type="button" onclick="copyToClipboard('talonitsolutions@gmail.com', 'Course request sent to clipboard!')" class="w-full py-3 rounded-xl bg-arch-cloud border border-arch-silver text-arch-graphite hover:border-arch-blue font-semibold text-xs transition-all flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-envelope text-arch-blue"></i>
+                                <span>Request Course Modules</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- DIVISION 3: TALONFX QUANTITATIVE -->
+                    <div class="glass-panel-white glass-panel-hover rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-amber-500">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="p-3 rounded-2xl bg-amber-500/10 text-amber-600 text-xl">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                    Quant Division
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold text-arch-graphite mb-2">TalonFX Quant Systems</h4>
+                            <p class="text-xs font-mono text-amber-600 font-semibold mb-4">AUTOMATED TRADING & BOT INFRASTRUCTURE</p>
+
+
+                            <!-- Tech Stack Badges -->
+
+
+                        <div>
+                            <button type="button" aria-controls="cs-3" aria-expanded="false" onclick="toggleCaseStudy('cs-3')" class="w-full py-2.5 px-4 rounded-xl bg-arch-cloud hover:bg-arch-grey text-xs font-mono font-semibold text-arch-graphite flex items-center justify-between transition-colors mb-3">
+                                <span>Algorithmic Architecture</span>
+                                <i id="icon-cs-3" class="fa-solid fa-chevron-down transition-transform"></i>
+                            </button>
+
+                            <div id="cs-3" class="hidden text-xs text-arch-slate space-y-2 mb-4 p-4 rounded-xl bg-arch-porcelain border border-arch-silver">
+                                <p><strong class="text-arch-graphite">Features:</strong> Liquidity sweep detectors, automated risk position calculator, real-time WebSockets.</p>
+                                <p><strong class="text-arch-graphite">Hosting:</strong> Dedicated Ubuntu EC2 server with systemd bot daemons.</p>
+                            </div>
+
+                            <button type="button" onclick="registerInteraction()" class="w-full py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100 font-semibold text-xs transition-all flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Inspect Bot Telemetry</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- 4. INTERACTIVE ARCHITECTURE LABORATORY -->
+            <section id="lab" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-blue to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-blue uppercase font-bold">03 / Interactive Architecture Laboratory</h2>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-arch-graphite mb-8">System Canvas & Flow Visualizer</h3>
+
+                <!-- Lab Switcher Tabs -->
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <button type="button" role="tab" aria-controls="diagram-web" aria-selected="true" onclick="switchLabDiagram('web')" id="tab-web" class="lab-tab-btn px-5 py-2.5 rounded-xl font-mono text-xs font-bold bg-arch-graphite text-white shadow-md transition-all">
+                        <i class="fa-solid fa-globe mr-2"></i>Web Platform Architecture
+                    </button>
+                    <button type="button" role="tab" aria-controls="diagram-quant" aria-selected="false" onclick="switchLabDiagram('quant')" id="tab-quant" class="lab-tab-btn px-5 py-2.5 rounded-xl font-mono text-xs font-bold bg-arch-white text-arch-slate border border-arch-silver hover:border-arch-blue transition-all">
+                        <i class="fa-solid fa-chart-line mr-2 text-arch-blue"></i>TalonFX Execution Engine
+                    </button>
+                    <button type="button" role="tab" aria-controls="diagram-cloud" aria-selected="false" onclick="switchLabDiagram('cloud')" id="tab-cloud" class="lab-tab-btn px-5 py-2.5 rounded-xl font-mono text-xs font-bold bg-arch-white text-arch-slate border border-arch-silver hover:border-arch-gold transition-all">
+                        <i class="fa-solid fa-cloud-arrow-up mr-2 text-arch-gold"></i>Vercel & AWS Pipeline
+                    </button>
+                </div>
+
+                <!-- Interactive Canvas SVG Area -->
+                <div class="glass-panel-white p-6 sm:p-10 rounded-3xl border border-arch-silver relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- SVG Diagram Visualizer -->
+                        <div class="lg:col-span-8 bg-arch-porcelain p-6 rounded-2xl border border-arch-silver relative">
+                            <!-- SVG WEB ARCHITECTURE -->
+                            <svg id="diagram-web" class="w-full h-auto min-h-[260px]" viewBox="0 0 600 240" fill="none">
+                                <!-- Nodes -->
+                                <rect x="30" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#DCE3EB" stroke-width="2"/>
+                                <text x="90" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Client Browser</text>
+                                <text x="90" y="135" font-family="Fira Code" font-size="9" fill="#368BEB" text-anchor="middle">HTTP/2 Request</text>
+
+                                <rect x="240" y="90" width="130" height="60" rx="12" fill="#FFFFFF" stroke="#C49A36" stroke-width="2"/>
+                                <text x="305" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Vercel Edge Network</text>
+                                <text x="305" y="135" font-family="Fira Code" font-size="9" fill="#C49A36" text-anchor="middle">CDN & Serverless</text>
+
+                                <rect x="450" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#DCE3EB" stroke-width="2"/>
+                                <text x="510" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">REST / GraphQL</text>
+                                <text x="510" y="135" font-family="Fira Code" font-size="9" fill="#354154" text-anchor="middle">Backend Services</text>
+
+                                <!-- Connection Lines -->
+                                <line x1="150" y1="120" x2="240" y2="120" stroke="#368BEB" stroke-width="2" class="animate-data-flow"/>
+                                <line x1="370" y1="120" x2="450" y2="120" stroke="#C49A36" stroke-width="2" class="animate-data-flow"/>
+                            </svg>
+
+                            <!-- SVG QUANT ARCHITECTURE -->
+                            <svg id="diagram-quant" class="hidden w-full h-auto min-h-[260px]" viewBox="0 0 600 240" fill="none">
+                                <rect x="30" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#DCE3EB" stroke-width="2"/>
+                                <text x="90" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Telegram / Signal</text>
+
+                                <rect x="240" y="90" width="130" height="60" rx="12" fill="#FFFFFF" stroke="#368BEB" stroke-width="2"/>
+                                <text x="305" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Python SMC Engine</text>
+                                <text x="305" y="135" font-family="Fira Code" font-size="9" fill="#368BEB" text-anchor="middle">AWS EC2 Daemon</text>
+
+                                <rect x="450" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#C49A36" stroke-width="2"/>
+                                <text x="510" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">MT5 Terminal API</text>
+                                <text x="510" y="135" font-family="Fira Code" font-size="9" fill="#C49A36" text-anchor="middle">Order Executed</text>
+
+                                <line x1="150" y1="120" x2="240" y2="120" stroke="#368BEB" stroke-width="2" class="animate-data-flow"/>
+                                <line x1="370" y1="120" x2="450" y2="120" stroke="#C49A36" stroke-width="2" class="animate-data-flow"/>
+                            </svg>
+
+                            <!-- SVG CLOUD PIPELINE -->
+                            <svg id="diagram-cloud" class="hidden w-full h-auto min-h-[260px]" viewBox="0 0 600 240" fill="none">
+                                <rect x="30" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#DCE3EB" stroke-width="2"/>
+                                <text x="90" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Git Push / Commit</text>
+
+                                <rect x="240" y="90" width="130" height="60" rx="12" fill="#FFFFFF" stroke="#C49A36" stroke-width="2"/>
+                                <text x="305" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Automated CI/CD</text>
+
+                                <rect x="450" y="90" width="120" height="60" rx="12" fill="#FFFFFF" stroke="#368BEB" stroke-width="2"/>
+                                <text x="510" y="120" font-family="Plus Jakarta Sans" font-size="12" font-weight="bold" fill="#202938" text-anchor="middle">Production Edge</text>
+
+                                <line x1="150" y1="120" x2="240" y2="120" stroke="#C49A36" stroke-width="2" class="animate-data-flow"/>
+                                <line x1="370" y1="120" x2="450" y2="120" stroke="#368BEB" stroke-width="2" class="animate-data-flow"/>
+                            </svg>
+                        </div>
+
+                        <!-- Technical Specification Sidecard -->
+                        <div class="lg:col-span-4 space-y-4">
+                            <h4 id="lab-title" class="text-xl font-bold text-arch-graphite">Web Platform Architecture</h4>
+                            <p id="lab-desc" class="text-xs text-arch-slate leading-relaxed">
+                                Client requests are routed through Vercel's global edge network, serving compiled static assets and serverless functions with near-zero latency.
+                            </p>
+                            <div class="p-4 rounded-xl bg-arch-porcelain border border-arch-silver font-mono text-xs space-y-2">
+                                <div class="text-arch-gold font-bold">● System Parameters</div>
+                                <div class="text-arch-slate">Latency: &lt; 25ms</div>
+                                <div class="text-arch-slate">Protocol: HTTP/3 & WebSockets</div>
+                                <div class="text-arch-slate">Security: SSL TLS 1.3 Strict</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 5. TECHNICAL EXPERTISE MATRIX -->
+            <section id="stack" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-gold to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-gold uppercase font-bold">04 / Stack & Expertise Matrix</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Progress Bar Metrics -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-extrabold text-arch-graphite">Core Competencies</h3>
+
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-arch-graphite">Frontend Engineering (HTML5, CSS3, JS ES6+, Tailwind)</span>
+                                <span class="text-arch-gold font-mono">95%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-arch-cloud border border-arch-silver overflow-hidden p-0.5">
+                                <div class="h-full rounded-full bg-gradient-to-r from-arch-gold to-yellow-500 w-[95%]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-arch-graphite">Python Systems & Algorithmic Engines</span>
+                                <span class="text-arch-blue font-mono">90%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-arch-cloud border border-arch-silver overflow-hidden p-0.5">
+                                <div class="h-full rounded-full bg-gradient-to-r from-arch-blue to-blue-600 w-[90%]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-arch-graphite">Cloud Deployments (Vercel, AWS EC2, Git CI/CD)</span>
+                                <span class="text-arch-gold font-mono">88%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-arch-cloud border border-arch-silver overflow-hidden p-0.5">
+                                <div class="h-full rounded-full bg-gradient-to-r from-arch-gold to-amber-600 w-[88%]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-arch-graphite">MetaTrader 5 API & Automated Trading Systems</span>
+                                <span class="text-arch-blue font-mono">85%</span>
+                            </div>
+                            <div class="w-full h-2.5 rounded-full bg-arch-cloud border border-arch-silver overflow-hidden p-0.5">
+                                <div class="h-full rounded-full bg-gradient-to-r from-arch-blue to-cyan-500 w-[85%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domain Badges Grid -->
+                    <div class="glass-panel-white p-8 rounded-3xl border border-arch-silver">
+                        <h3 class="text-xl font-bold text-arch-graphite mb-4">Architectural Domains</h3>
+                        <p class="text-xs text-arch-slate mb-6">
+                            End-to-end expertise delivering high-grade enterprise software solutions across diverse engineering domains.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-server text-arch-gold"></i>
+                                <span>Vercel Serverless</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-code text-arch-blue"></i>
+                                <span>Clean Modular JS</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-robot text-arch-gold"></i>
+                                <span>Quant Execution</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-book text-arch-blue"></i>
+                                <span>Curriculum Author</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-layer-group text-arch-gold"></i>
+                                <span>RESTful APIs</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-arch-porcelain border border-arch-silver text-xs font-semibold text-arch-graphite flex items-center space-x-3">
+                                <i class="fa-solid fa-shield text-arch-blue"></i>
+                                <span>Systems Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- 6. PROFESSIONAL TIMELINE -->
+            <section id="timeline" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-12">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-gold to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-gold uppercase font-bold">05 / Career & Academic Narrative</h2>
+                </div>
+
+                <div class="relative border-l-2 border-arch-silver ml-4 md:ml-32 space-y-12">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 md:pl-12 group">
+                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-arch-gold border-4 border-arch-white shadow-md"></div>
+                        <span class="hidden md:block absolute -left-32 top-1 text-xs font-mono text-arch-gold font-bold">CURRENT</span>
+                        
+                        <div class="glass-panel-white p-6 rounded-2xl border border-arch-silver">
+                            <span class="md:hidden inline-block text-xs font-mono text-arch-gold font-bold mb-2">CURRENT</span>
+                            <h3 class="text-lg font-bold text-arch-graphite">Founder & Principal Lead Engineer</h3>
+                            <h4 class="text-xs font-semibold text-arch-gold uppercase font-mono mb-3">Talon IT Solutions & TalonFX</h4>
+                            <p class="text-xs text-arch-slate leading-relaxed">
+                                Directing client website architecture, software deployments on Vercel, and automated quantitative MT5 trading infrastructure on cloud servers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-8 md:pl-12 group">
+                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-arch-blue border-4 border-arch-white shadow-md"></div>
+                        <span class="hidden md:block absolute -left-32 top-1 text-xs font-mono text-arch-blue font-bold">ACADEMIC</span>
+                        
+                        <div class="glass-panel-white p-6 rounded-2xl border border-arch-silver">
+                            <span class="md:hidden inline-block text-xs font-mono text-arch-blue font-bold mb-2">ACADEMIC</span>
+                            <h3 class="text-lg font-bold text-arch-graphite">Software Engineering Studies</h3>
+                            <h4 class="text-xs font-semibold text-arch-blue uppercase font-mono mb-3">Eduvos Pretoria Campus</h4>
+                            <p class="text-xs text-arch-slate leading-relaxed">
+                                Specialized in computer science, software engineering design patterns, object-oriented systems, and enterprise data structures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-8 md:pl-12 group">
+                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-amber-500 border-4 border-arch-white shadow-md"></div>
+                        <span class="hidden md:block absolute -left-32 top-1 text-xs font-mono text-amber-600 font-bold">COMMUNITY</span>
+                        
+                        <div class="glass-panel-white p-6 rounded-2xl border border-arch-silver">
+                            <span class="md:hidden inline-block text-xs font-mono text-amber-600 font-bold mb-2">COMMUNITY</span>
+                            <h3 class="text-lg font-bold text-arch-graphite">Author & Lead Educator</h3>
+                            <h4 class="text-xs font-semibold text-amber-600 uppercase font-mono mb-3">Talon IT Education Initiative</h4>
+                            <p class="text-xs text-arch-slate leading-relaxed">
+                                Author of <em>"HTML for Beginner Engineers"</em> and founder of interactive web development bootcamps for high school learners in Mamelodi.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- 7. ENGINEERING TERMINAL (DELIBERATE DARK CONTRAST FEATURE) -->
+            <section id="terminal" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-blue to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-blue uppercase font-bold">06 / Studio CLI Feature</h2>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-arch-graphite mb-6">Interactive Studio Command Terminal</h3>
+
+                <!-- Deep Navy Terminal Box -->
+                <div class="bg-arch-navy rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-700 font-mono text-xs text-gray-200">
+                    <!-- Terminal Header Bar -->
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-4">
+                        <div class="flex space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                        </div>
+                        <span class="text-[11px] text-gray-400">ntsako@talon-it-solutions:~ (zsh)</span>
+                        <span class="text-[10px] text-arch-gold">v2.4-arch</span>
+                    </div>
+
+                    <!-- Terminal Output Window -->
+                    <div id="terminal-output" class="space-y-2 mb-4 max-h-60 overflow-y-auto pr-2">
+                        <div class="text-emerald-400">Talon IT Solutions Architectural CLI v2.4</div>
+                        <div class="text-gray-400">Type <span class="text-arch-gold font-bold">'help'</span> to view available system commands.</div>
+                    </div>
+
+                    <!-- Terminal Input Line -->
+                    <div class="flex items-center space-x-2 pt-2 border-t border-slate-800">
+                        <span class="text-arch-gold font-bold">ntsako$&nbsp;</span>
+                        <input id="terminal-input" aria-label="Enter a terminal command" type="text" class="bg-transparent border-none outline-none text-white w-full focus:ring-0 font-mono text-xs" placeholder="type a command e.g. 'skills' or 'projects'..." autocomplete="off"/>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 8. DIRECT CONTACT & CONNECT -->
+            <section id="contact" class="scroll-mt-28">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="w-12 h-1 bg-gradient-to-r from-arch-gold to-transparent"></div>
+                    <h2 class="text-xs font-mono tracking-widest text-arch-gold uppercase font-bold">07 / Direct Communication</h2>
+                </div>
+
+                <div class="glass-panel-gold rounded-3xl p-8 sm:p-12 border border-arch-gold/30">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-extrabold text-arch-graphite mb-4">
+                                Initiate an Engineering Partnership
+                            </h3>
+                            <p class="text-arch-slate text-sm mb-8 leading-relaxed">
+                                Available for enterprise web architecture contracts, quantitative trading system builds, and technology consulting in South Africa and globally.
+                            </p>
+
+                            <div class="space-y-4">
+                                <!-- Email Trigger -->
+                                <button type="button" onclick="copyToClipboard('talonitsolutions@gmail.com', 'Email copied!')" class="w-full sm:w-auto p-4 rounded-2xl bg-arch-white border border-arch-silver hover:border-arch-gold flex items-center space-x-4 transition-all shadow-sm text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-arch-gold/10 text-arch-gold flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] font-mono uppercase text-arch-slate">Direct Email</div>
+                                        <div class="text-xs font-bold text-arch-graphite">talonitsolutions@gmail.com</div>
+                                    </div>
+                                </button>
+
+                                <!-- Phone Trigger -->
+                                <button type="button" onclick="copyToClipboard('0785969516', 'Phone copied!')" class="w-full sm:w-auto p-4 rounded-2xl bg-arch-white border border-arch-silver hover:border-arch-blue flex items-center space-x-4 transition-all shadow-sm text-left">
+                                    <div class="w-10 h-10 rounded-xl bg-arch-blue/10 text-arch-blue flex items-center justify-center text-lg">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] font-mono uppercase text-arch-slate">WhatsApp / Voice</div>
+                                        <div class="text-xs font-bold text-arch-graphite">078 596 9516</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Direct Verification Links -->
+                        <div class="space-y-4 bg-arch-white p-6 rounded-2xl border border-arch-silver shadow-sm">
+                            <h4 class="text-sm font-bold text-arch-graphite mb-2">Verified Professional Handles</h4>
+
+                            <a href="https://www.linkedin.com/in/ntsakomaluleke" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-arch-porcelain hover:bg-arch-cloud border border-arch-silver transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-brands fa-linkedin text-xl text-arch-blue"></i>
+                                    <span class="text-xs font-bold text-arch-graphite">LinkedIn Profile</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-xs text-arch-slate"></i>
+                            </a>
+
+                            <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-arch-porcelain hover:bg-arch-cloud border border-arch-silver transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-triangle-circle-box text-xl text-arch-graphite"></i>
+                                    <span class="text-xs font-bold text-arch-graphite">Vercel Portfolio</span>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-xs text-arch-slate"></i>
+                            </a>
+
+                            <div class="pt-2 text-[11px] font-mono text-arch-slate flex items-center justify-between">
+                                <span>Location: Pretoria, SA</span>
+                                <span class="text-emerald-600">● GMT+2 Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-arch-white border-t border-arch-silver py-8 mt-24">
+        <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+            <p class="text-xs text-arch-slate font-mono">
+                © <span id="year">2026</span> Ntsako Maluleke | Talon IT Solutions. White Architectural Engineering Studio.
+            </p>
+            <div class="flex justify-center space-x-6 mt-4 sm:mt-0 text-xs font-semibold text-arch-slate">
+                <a href="https://www.linkedin.com/in/ntsakomaluleke" target="_blank" rel="noopener noreferrer" class="hover:text-arch-gold">LinkedIn</a>
+                <a href="https://vercel.com/talonitsolutions-projects" target="_blank" rel="noopener noreferrer" class="hover:text-arch-gold">Vercel</a>
+                <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-arch-gold">Back to Top ↑</button>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Global Metrics & Unveil State
+        let interactionCount = 0;
+        let isUnveiled = false;
+
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Reveal Portfolio Animation Trigger
+        function unveilStudio() {
+            const content = document.getElementById('unveiled-content');
+            const btn = document.getElementById('unveil-btn');
+            const prompt = document.getElementById('unveil-prompt');
+
+            if (!isUnveiled) {
+                content.classList.remove('unveil-hidden');
+                content.classList.add('unveil-visible');
+                isUnveiled = true;
+
+                btn.innerHTML = `<i class="fa-solid fa-check text-arch-gold"></i><span>STUDIO UNVEILED</span>`;
+                prompt.innerText = '✓ All engineering layers, systems laboratory & CLI unlocked below.';
+                prompt.classList.add('text-emerald-600');
+
+                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+            }
+            registerInteraction();
+        }
+
+        // Metrics Counter Increment
+        function registerInteraction() {
+            interactionCount++;
+            document.getElementById('nav-counter').innerText = interactionCount;
+
+            const commits = document.getElementById('stat-commits');
+            if (commits) {
+                let current = parseInt(commits.innerText.replace(/,/g, '').replace('+', ''));
+                commits.innerText = (current + 5).toLocaleString() + '+';
+            }
+        }
+
+        // Division Case Study Drawer Toggle
+        function toggleCaseStudy(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            if (!el) return;
+            const opening = el.classList.contains('hidden');
+            el.classList.toggle('hidden', !opening);
+            if (icon) icon.classList.toggle('rotate-180', opening);
+            const trigger = document.querySelector(`[aria-controls="${id}"]`);
+            if (trigger) trigger.setAttribute('aria-expanded', String(opening));
+        }
+
+        // Interactive Lab Diagram Switcher
+        function switchLabDiagram(type) {
+            const webDiag = document.getElementById('diagram-web');
+            const quantDiag = document.getElementById('diagram-quant');
+            const cloudDiag = document.getElementById('diagram-cloud');
+            
+            const title = document.getElementById('lab-title');
+            const desc = document.getElementById('lab-desc');
+
+            // Reset Tabs Styling
+            document.querySelectorAll('.lab-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-arch-graphite', 'text-white');
+                btn.classList.add('bg-arch-white', 'text-arch-slate', 'border', 'border-arch-silver');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            // Hide all SVG diagrams
+            webDiag.classList.add('hidden');
+            quantDiag.classList.add('hidden');
+            cloudDiag.classList.add('hidden');
+
+            if (type === 'web') {
+                webDiag.classList.remove('hidden');
+                document.getElementById('tab-web').classList.add('bg-arch-graphite', 'text-white');
+                document.getElementById('tab-web').setAttribute('aria-selected', 'true');
+                title.innerText = 'Web Platform Architecture';
+                desc.innerText = 'Client requests are routed through Vercel global edge networks, serving compiled static assets and serverless functions with near-zero latency.';
+            } else if (type === 'quant') {
+                quantDiag.classList.remove('hidden');
+                document.getElementById('tab-quant').classList.add('bg-arch-graphite', 'text-white');
+                document.getElementById('tab-quant').setAttribute('aria-selected', 'true');
+                title.innerText = 'TalonFX Algorithmic Engine';
+                desc.innerText = 'High-frequency Python WebSocket listener processing MetaTrader 5 trade signals on AWS cloud infrastructure.';
+            } else if (type === 'cloud') {
+                cloudDiag.classList.remove('hidden');
+                document.getElementById('tab-cloud').classList.add('bg-arch-graphite', 'text-white');
+                document.getElementById('tab-cloud').setAttribute('aria-selected', 'true');
+                title.innerText = 'Vercel & AWS Pipeline';
+                desc.innerText = 'Automated Git commits trigger serverless edge deployment builds and continuous integration checks.';
+            }
+            registerInteraction();
+        }
+
+        // Copy to Clipboard Utility
+        async function copyToClipboard(text, msg) {
+            let copied = false;
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    copied = true;
+                } else {
+                    const input = document.createElement('textarea');
+                    input.value = text;
+                    input.setAttribute('readonly', '');
+                    input.style.position = 'fixed';
+                    input.style.opacity = '0';
+                    document.body.appendChild(input);
+                    input.select();
+                    copied = document.execCommand('copy');
+                    input.remove();
+                }
+            } catch (error) {
+                copied = false;
+            }
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = copied ? (msg || 'Copied to clipboard!') : 'Copy unavailable. Please select and copy the text manually.';
+            toast.classList.add('show');
+            window.clearTimeout(window.toastTimer);
+            window.toastTimer = window.setTimeout(() => toast.classList.remove('show'), 3600);
+        }
+
+        // Accessible mobile navigation: keyboard, screen-reader and touch support.
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        function setMobileMenu(open) {
+            mobileDrawer.classList.toggle('hidden', !open);
+            mobileDrawer.hidden = !open;
+            mobileToggle.setAttribute('aria-expanded', String(open));
+            mobileToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+            mobileToggle.innerHTML = open
+                ? '<i class="fa-solid fa-xmark text-xl" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-bars-staggered text-xl" aria-hidden="true"></i>';
+        }
+        mobileToggle.addEventListener('click', () => {
+            setMobileMenu(mobileToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => setMobileMenu(false));
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && mobileToggle.getAttribute('aria-expanded') === 'true') {
+                setMobileMenu(false);
+                mobileToggle.focus();
+            }
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) setMobileMenu(false);
+        });
+
+        // -------------------------------------------------------------------
+        // INTERACTIVE CLI TERMINAL LOGIC
+        // -------------------------------------------------------------------
+        const termInput = document.getElementById('terminal-input');
+        const termOutput = document.getElementById('terminal-output');
+
+        if (termInput) {
+            termInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const cmd = this.value.trim().toLowerCase();
+                    this.value = '';
+                    
+                    // Create Input Command Line Output
+                    const userLine = document.createElement('div');
+                    const prompt = document.createElement('span');
+                    prompt.className = 'text-arch-gold font-bold';
+                    prompt.textContent = 'ntsako$ ';
+                    const enteredCommand = document.createElement('span');
+                    enteredCommand.textContent = cmd;
+                    userLine.append(prompt, enteredCommand);
+                    termOutput.appendChild(userLine);
+
+                    // Command Handler
+                    const response = document.createElement('div');
+                    response.classList.add('text-gray-300', 'mb-2');
+
+                    switch (cmd) {
+                        case 'help':
+                            response.innerHTML = `
+                                Commands:<br/>
+                                &nbsp;&nbsp;<span class="text-arch-gold">about</span> - Software engineer bio<br/>
+                                &nbsp;&nbsp;<span class="text-arch-gold">skills</span> - Architecture stack<br/>
+                                &nbsp;&nbsp;<span class="text-arch-gold">projects</span> - Talon IT ventures<br/>
+                                &nbsp;&nbsp;<span class="text-arch-gold">contact</span> - Direct channels<br/>
+                                &nbsp;&nbsp;<span class="text-arch-gold">clear</span> - Clear output
+                            `;
+                            break;
+                        case 'about':
+                            response.innerText = "Ntsako Maluleke: Software Engineer & Founder of Talon IT Solutions. Eduvos Pretoria Alumnus.";
+                            break;
+                        case 'skills':
+                            response.innerText = "Stack: HTML5/CSS3, JavaScript (ES6+), Tailwind, Python, MT5 API, AWS EC2, REST APIs, Vercel.";
+                            break;
+                        case 'projects':
+                            response.innerText = "1. Talon IT Solutions (Web) | 2. Talon IT Education | 3. TalonFX (Quant Systems)";
+                            break;
+                        case 'contact':
+                            response.innerText = "Email: talonitsolutions@gmail.com | Phone: 078 596 9516 | Pretoria, SA";
+                            break;
+                        case 'clear':
+                            termOutput.innerHTML = '';
+                            return;
+                        default:
+                            response.textContent = `Command not recognized: '${cmd}'. Type 'help' for command menu.`;
+                            response.classList.add('text-red-400');
+                    }
+
+                    termOutput.appendChild(response);
+                    termOutput.scrollTop = termOutput.scrollHeight;
+                }
+            });
+        }
+
+        // -------------------------------------------------------------------
+        // WHITE ARCHITECTURAL CANVAS LIGHT GRID PARTICLES
+        // -------------------------------------------------------------------
+        const canvas = document.getElementById('arch-canvas');
+        const ctx = canvas ? canvas.getContext('2d', { alpha: true }) : null;
+        let particles = [];
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const lowPower = window.matchMedia('(max-width: 600px)').matches || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+
+        function resizeCanvas() {
+            if (!canvas || !ctx) return;
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+            canvas.width = Math.floor(window.innerWidth * dpr);
+            canvas.height = Math.floor(window.innerHeight * dpr);
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        window.addEventListener('resize', resizeCanvas, { passive: true });
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * window.innerWidth;
+                this.y = Math.random() * window.innerHeight;
+                this.vx = (Math.random() - 0.5) * 0.24;
+                this.vy = (Math.random() - 0.5) * 0.24;
+                this.radius = Math.random() * 1.25 + .7;
+                this.color = Math.random() > 0.5 ? '#C49A36' : '#368BEB';
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > window.innerWidth) this.vx *= -1;
+                if (this.y < 0 || this.y > window.innerHeight) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color; ctx.globalAlpha = 0.22; ctx.fill();
+            }
+        }
+
+        const particleCount = reduceMotion ? 0 : (lowPower ? 12 : 28);
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        let animationFrame = null;
+        function animateCanvas() {
+            if (!ctx || reduceMotion || document.hidden) return;
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(); particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 100) {
+                        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = '#DCE3EB'; ctx.globalAlpha = (1 - dist / 100) * 0.25; ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1;
+            animationFrame = requestAnimationFrame(animateCanvas);
+        }
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && animationFrame) cancelAnimationFrame(animationFrame);
+            else if (!document.hidden && !reduceMotion) animateCanvas();
+        });
+        if (!reduceMotion) animateCanvas();
+    </script>
+</body>
+</html>
